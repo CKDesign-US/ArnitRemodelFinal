@@ -11,7 +11,7 @@ interface Review {
 }
 
 export default function Reviews() {
-  // Lazy-initialize state from localStorage so submissions persist across browser reloads
+  // Lazy-initialize state from localStorage so customer reviews persist across reloads
   const [reviewsList, setReviewsList] = useState<Review[]>(() => {
     if (typeof window !== 'undefined') {
       const savedReviews = localStorage.getItem('arnit_customer_reviews');
@@ -33,7 +33,7 @@ export default function Reviews() {
     localStorage.setItem('arnit_customer_reviews', JSON.stringify(reviewsList));
   }, [reviewsList]);
 
-  // Dynamic statistics calculations
+  // Dynamic metrics calculation
   const totalReviews = reviewsList.length;
   const averageRating = totalReviews > 0 
     ? (reviewsList.reduce((sum, r) => sum + r.rating, 0) / totalReviews).toFixed(1)
@@ -55,10 +55,10 @@ export default function Reviews() {
       rating,
     };
 
-    // Prepend new review to display it at the top immediately
+    // Prepend the new review to show instantly at the top of the feed list layout
     setReviewsList([newReview, ...reviewsList]);
 
-    // Reset form states
+    // Reset form field inputs
     setName('');
     setLocation('');
     setProject('');
@@ -89,14 +89,14 @@ export default function Reviews() {
               What Wisconsin Homeowners Say
             </h2>
             
-            {/* Dynamic Live Counter */}
+            {/* Dynamic Live Counter Dashboard */}
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-arnit-black bg-white border border-arnit-gray-border px-4 py-2 rounded-full w-max mx-auto shadow-sm">
               <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
+                {[1, 2, 3, 4, 5].map((starIdx) => (
                   <Star 
-                    key={i} 
+                    key={starIdx} 
                     className={`w-4 h-4 ${
-                      i < Math.round(Number(averageRating)) ? 'fill-arnit-red text-arnit-red' : 'text-gray-300'
+                      starIdx <= Math.round(Number(averageRating)) ? 'fill-arnit-red text-arnit-red' : 'text-gray-300'
                     }`} 
                   />
                 ))}
@@ -111,7 +111,7 @@ export default function Reviews() {
         {/* Dynamic Reviews Listing Area */}
         <div className="mb-16">
           {totalReviews === 0 ? (
-            /* Empty State: Only shows when counter is exactly 0 */
+            /* Empty State Display when counter is exactly 0 */
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -122,7 +122,7 @@ export default function Reviews() {
               <p className="text-sm text-gray-500 max-w-sm mx-auto px-4">Be the first to share your experience with Rrahman and the Arnit Remodel crew using the form below!</p>
             </motion.div>
           ) : (
-            /* Grid View: Displays the list of customer reviews left natively on the site */
+            /* Grid View displaying the customer submissions */
             <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
               <AnimatePresence mode="popLayout">
                 {reviewsList.map((review, i) => (
@@ -210,27 +210,15 @@ export default function Reviews() {
               />
             </div>
 
-<div>
-  <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Rating</label>
-  <div className="flex gap-1 mt-1">
-    {[1, 2, 3, 4, 5].map((starValue) => (
-      <button
-        type="button"
-        key={starValue}
-        onClick={() => setRating(starValue)}
-        onMouseEnter={() => setHoverRating(starValue)}
-        onMouseLeave={() => setHoverRating(0)}
-        className="focus:outline-none transition transform active:scale-95"
-      >
-        <Star 
-          className={`w-6 h-6 ${
-            starValue <= (hoverRating || rating) 
-              ? 'fill-arnit-red text-arnit-red' 
-              : 'text-gray-300'
-          }`} 
-        />
-      </button>
-    ))}
-  </div>
-</div>
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Rating</label>
+              <div className="flex gap-1 mt-1">
+                {[1, 2, 3, 4, 5].map((starValue) => (
+                  <button
+                    type="button"
+                    key={starValue}
+                    onClick={() => setRating(starValue)}
+                    onMouseEnter={() => setHoverRating(starValue)}
+                    onMouseLeave={() => setHoverRating(0)}
+
 
