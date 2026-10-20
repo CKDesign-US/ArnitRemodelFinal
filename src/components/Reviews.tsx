@@ -55,7 +55,7 @@ export default function Reviews() {
       rating,
     };
 
-    // Prepend the new review to show instantly at the top of the feed list layout
+    // Prepend the new review to show instantly at the top of the feed layout
     setReviewsList([newReview, ...reviewsList]);
 
     // Reset form field inputs
