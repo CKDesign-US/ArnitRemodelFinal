@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, Clock, User, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+
 
 const services = [
   'Full Home Renovation / Remodeling',
@@ -34,7 +34,7 @@ export default function Contact() {
       message: formData.get('message') as string,
     };
 
-    const { error } = await supabase.from('quote_requests').insert(payload);
+    const { error } = await console.log("Form submitted", formData);
 
     if (error) {
       setStatus('error');
