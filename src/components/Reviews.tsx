@@ -223,10 +223,13 @@ export default function Reviews() {
 
                     className="focus:outline-none transition transform active:scale-95"
 >
-<Star
-className={w-6 h-6 ${ starValue <= (hoverRating || rating)  ? 'fill-arnit-red text-arnit-red'  : 'text-gray-300' }}
+<Star 
+  className={`w-6 h-6 ${
+    starValue <= (hoverRating || rating) 
+      ? 'fill-arnit-red text-arnit-red' 
+      : 'text-gray-300'
+  }`} 
 />
-
 ))}
 
 Review Message *
