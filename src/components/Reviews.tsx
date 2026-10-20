@@ -210,13 +210,27 @@ export default function Reviews() {
               />
             </div>
 
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Rating</label>
-              <div className="flex gap-1 mt-1">
-                {[1, 2, 3, 4, 5].map((starValue) => (
-                  <button
-                    type="button"
-                    key={starValue}
-                    onClick={() => setRating(starValue)}
-                    onMouseEnter={() => setHoverRating(starValue)}
-                    onMouseLeave={() => setHoverRating(0)}
+<div>
+  <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Rating</label>
+  <div className="flex gap-1 mt-1">
+    {[1, 2, 3, 4, 5].map((starValue) => (
+      <button
+        type="button"
+        key={starValue}
+        onClick={() => setRating(starValue)}
+        onMouseEnter={() => setHoverRating(starValue)}
+        onMouseLeave={() => setHoverRating(0)}
+        className="focus:outline-none transition transform active:scale-95"
+      >
+        <Star 
+          className={`w-6 h-6 ${
+            starValue <= (hoverRating || rating) 
+              ? 'fill-arnit-red text-arnit-red' 
+              : 'text-gray-300'
+          }`} 
+        />
+      </button>
+    ))}
+  </div>
+</div>
+
