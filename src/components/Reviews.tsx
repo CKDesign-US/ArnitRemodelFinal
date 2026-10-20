@@ -220,5 +220,3 @@ export default function Reviews() {
                     onClick={() => setRating(starValue)}
                     onMouseEnter={() => setHoverRating(starValue)}
                     onMouseLeave={() => setHoverRating(0)}
-
-
