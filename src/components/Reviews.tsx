@@ -220,3 +220,29 @@ export default function Reviews() {
                     onClick={() => setRating(starValue)}
                     onMouseEnter={() => setHoverRating(starValue)}
                     onMouseLeave={() => setHoverRating(0)}
+
+                    className="focus:outline-none transition transform active:scale-95"
+>
+<Star
+className={w-6 h-6 ${ starValue <= (hoverRating || rating)  ? 'fill-arnit-red text-arnit-red'  : 'text-gray-300' }}
+/>
+
+))}
+
+Review Message *
+<textarea
+rows={4}
+value={text}
+onChange={(e) => setText(e.target.value)}
+className="w-full px-3 py-2 border border-arnit-gray-border rounded text-sm focus:outline-none focus:border-arnit-red"
+placeholder="Tell us about the craftsmanship, timeline, and working with Rrahman..."
+required
+/>
+Submit Review
+
+
+</motion.div>
+
+
+);
+}
