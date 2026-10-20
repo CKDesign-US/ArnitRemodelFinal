@@ -220,27 +220,41 @@ export default function Reviews() {
                     onClick={() => setRating(starValue)}
                     onMouseEnter={() => setHoverRating(starValue)}
                     onMouseLeave={() => setHoverRating(0)}
+                    className="focus:outline-none transition transform active:scale-95 p-1"
+                  >
+                    <Star 
+                      className={`w-5 h-5 ${
+                        starValue <= (hoverRating || rating) 
+                          ? "fill-arnit-red text-arnit-red" 
+                          : "text-gray-300"
+                      }`} 
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
 
-                    className="focus:outline-none transition transform active:scale-95"
->
-// 
-<Star className={`w-5 h-5 ${index < rating ? "text-yellow-400" : "text-gray-300"}`} />
-))}
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Review Message *</label>
+              <textarea
+                rows={4}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className="w-full px-3 py-2 border border-arnit-gray-border rounded text-sm focus:outline-none focus:border-arnit-red"
+                placeholder="Tell us about the craftsmanship, timeline, and working with Rrahman..."
+                required
+              />
+            </div>
 
-Review Message *
-<textarea
-rows={4}
-value={text}
-onChange={(e) => setText(e.target.value)}
-className="w-full px-3 py-2 border border-arnit-gray-border rounded text-sm focus:outline-none focus:border-arnit-red"
-placeholder="Tell us about the craftsmanship, timeline, and working with Rrahman..."
-required
-/>
-Submit Review
-
-
-</motion.div>
-
-
-);
+            <button
+              type="submit"
+              className="w-full py-3 bg-arnit-red hover:bg-red-700 text-white font-bold text-sm rounded shadow transition duration-200 uppercase tracking-wider"
+            >
+              Submit Review
+            </button>
+          </form>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
