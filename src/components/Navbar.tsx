@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 
+// This looks for the image file directly inside your src folder
+import ArnitLogo from '../ArnitLLC.png'; 
+
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
@@ -40,7 +43,7 @@ export default function Navbar() {
           <a href="#home" className="flex items-center gap-3 shrink-0">
             <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-md bg-arnit-gray border border-arnit-gray-border flex items-center justify-center overflow-hidden">
               <img 
-                src="/ArnitLLC.png" 
+                src={ArnitLogo} 
                 alt="Arnit Remodeling Logo" 
                 className="w-full h-full object-contain"
               />
