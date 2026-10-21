@@ -39,9 +39,11 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 shrink-0">
             <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-md bg-arnit-gray border border-arnit-gray-border flex items-center justify-center overflow-hidden">
-              <span className="text-[9px] font-bold text-arnit-black/40 text-center leading-tight">
-                AL/US<br />FLAG
-              </span>
+              <img 
+                src="/ArnitLLC.png" 
+                alt="Arnit Remodeling Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="leading-tight">
               <div className="text-base lg:text-lg font-extrabold text-arnit-black tracking-tight">
@@ -134,3 +136,4 @@ export default function Navbar() {
     </header>
   );
 }
+
