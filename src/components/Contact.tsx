@@ -27,7 +27,7 @@ export default function Contact() {
 
           <div className="mt-8 space-y-4">
             <a
-              href="tel:+19205550100"
+              href="tel:+19202540681"
               className="flex items-center gap-4 p-4 bg-white border border-arnit-gray-border rounded-lg hover:border-arnit-red/40 transition-colors"
             >
               <div className="w-11 h-11 rounded-md bg-arnit-red flex items-center justify-center shrink-0">
@@ -35,12 +35,12 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-xs text-gray-500 font-semibold">Call Us</div>
-                <div className="text-base font-bold text-arnit-black">(920) 555-0100</div>
+                <div className="text-base font-bold text-arnit-black">(920) 254-0681</div>
               </div>
             </a>
 
             <a
-              href="mailto:info@arnitremodeling.com"
+              href="mailto:zyra0280@gmail.com"
               className="flex items-center gap-4 p-4 bg-white border border-arnit-gray-border rounded-lg hover:border-arnit-red/40 transition-colors"
             >
               <div className="w-11 h-11 rounded-md bg-arnit-black flex items-center justify-center shrink-0">
@@ -48,7 +48,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-xs text-gray-500 font-semibold">Email Us</div>
-                <div className="text-base font-bold text-arnit-black">info@arnitremodeling.com</div>
+                <div className="text-base font-bold text-arnit-black">zyra0280@gmail.com</div>
               </div>
             </a>
 
